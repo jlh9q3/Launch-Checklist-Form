@@ -71,7 +71,9 @@ window.addEventListener("load", function() {
          let fuelStatus = document.getElementById("fuelStatus");
          fuelStatus.innerHTML = "Warning! Fuel level is too low for launch!";
          sufficientUserInput = true;
+
       } else {
+         
          let fuelStatus = document.getElementById("fuelStatus");
          fuelStatus.innerHTML = "Fuel level sufficient.";
       }
