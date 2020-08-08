@@ -20,7 +20,7 @@ window.addEventListener("load", function() {
       if (pilotName.value === "" || 
       copilotName.value === "" || 
       fuelLevel.value === "" || 
-      cargoMass.value === "" ){
+      cargoMass.value === "" ) {
          sufficientUserInput = false;
          alert("All fields required");
 
