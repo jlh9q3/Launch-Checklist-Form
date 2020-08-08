@@ -11,30 +11,16 @@ window.addEventListener("load", function() {
    let cargoMass = document.querySelector("input[name=cargoMass]");
    
 
-   //fetch json for mission destination
-   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
-      response.json().then( function(json) {
-         
-         let destination = json[Math.floor(Math.random()*6)];
 
-         let missionTarget = document.getElementById("missionTarget");
-         missionTarget.innerHTML = `<h2>Mission Destination</h2>
-         <ol>
-            <li>Name: ${destination.name}</li>
-            <li>Diameter: ${destination.diameter}</li>
-            <li>Star: ${destination.star}</li>
-            <li>Distance from Earth: ${destination.distance}</li>
-            <li>Number of Moons: ${destination.moons}</li>
-         </ol>
-         <img src="${destination.image}">`;
-      });
-   } );
 //use prevent default and conditionals to validate...strings = strings, numbers=numbers
 
    form.addEventListener("submit", function(event){
       let sufficientUserInput = true;
 
-      if (pilotName.value === "" || copilotName.value === "" || fuelLevel.value === "" || cargoMass.value === "" ){
+      if (pilotName.value === "" || 
+      copilotName.value === "" || 
+      fuelLevel.value === "" || 
+      cargoMass.value === "" ){
          sufficientUserInput = false;
          alert("All fields required");
 
@@ -43,7 +29,12 @@ window.addEventListener("load", function() {
       }
          //strings = strings, numbers=numbers so if values !strings/num invalid input
 
-     else if (typeof(pilotName.value) != "string" || typeof(copilotName.value) != "string" || isNaN(fuelLevel.value) || isNaN(cargoMass.value) || !isNaN(pilotName.value) || !isNaN(copilotName.value) ){
+     else if (typeof(pilotName.value) != "string" || 
+     typeof(copilotName.value) != "string" || 
+     isNaN(fuelLevel.value) || 
+     isNaN(cargoMass.value) || 
+     !isNaN(pilotName.value) || 
+     !isNaN(copilotName.value) ){
         sufficientUserInput = false;
 
          alert("Invalid input");
@@ -73,7 +64,7 @@ window.addEventListener("load", function() {
          sufficientUserInput = true;
 
       } else {
-         
+
          let fuelStatus = document.getElementById("fuelStatus");
          fuelStatus.innerHTML = "Fuel level sufficient.";
       }
@@ -112,7 +103,24 @@ window.addEventListener("load", function() {
 });
 
 
- 
+    //fetch json for mission destination
+    fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(response) {
+      response.json().then( function(json) {
+         
+         let destination = json[Math.floor(Math.random()*6)];
+
+         let missionTarget = document.getElementById("missionTarget");
+         missionTarget.innerHTML = `<h2>Mission Destination</h2>
+         <ol>
+            <li>Name: ${destination.name}</li>
+            <li>Diameter: ${destination.diameter}</li>
+            <li>Star: ${destination.star}</li>
+            <li>Distance from Earth: ${destination.distance}</li>
+            <li>Number of Moons: ${destination.moons}</li>
+         </ol>
+         <img src="${destination.image}">`;
+      });
+   } );
 
 
 
